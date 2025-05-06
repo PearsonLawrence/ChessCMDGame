@@ -48,3 +48,12 @@ jobs:
         with:
           name: executable
           path: ./dist/CMDChess.exe
+
+      - name: Upload release to GitHub
+        uses: softprops/action-gh-release@v1
+        if: github.ref == 'refs/heads/main'
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          files: ./dist/CMDChess.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
