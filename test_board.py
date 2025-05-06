@@ -27,6 +27,7 @@ class Test_Board(unittest.TestCase):
         self.assertEqual(board.grid[7][7].name, 'R')
         self.assertEqual(board.grid[7][7].color, 'w')
         
+        #Tests knight setup
         self.assertEqual(board.grid[0][1].name, 'N')
         self.assertEqual(board.grid[0][1].color, 'b')
         self.assertEqual(board.grid[0][6].name, 'N')
@@ -36,6 +37,7 @@ class Test_Board(unittest.TestCase):
         self.assertEqual(board.grid[7][6].name, 'N')
         self.assertEqual(board.grid[7][6].color, 'w')
         
+        #Tests bishop setup
         self.assertEqual(board.grid[0][2].name, 'B')
         self.assertEqual(board.grid[0][2].color, 'b')
         self.assertEqual(board.grid[0][5].name, 'B')
@@ -45,11 +47,13 @@ class Test_Board(unittest.TestCase):
         self.assertEqual(board.grid[7][5].name, 'B')
         self.assertEqual(board.grid[7][5].color, 'w')
         
+        #Tests queen setup
         self.assertEqual(board.grid[0][3].name, 'Q')
         self.assertEqual(board.grid[0][3].color, 'b')
         self.assertEqual(board.grid[7][3].name, 'Q')
         self.assertEqual(board.grid[7][3].color, 'w')
         
+        #Tests king setup
         self.assertEqual(board.grid[0][4].name, 'K')
         self.assertEqual(board.grid[0][4].color, 'b')
         self.assertEqual(board.grid[7][4].name, 'K')
@@ -57,18 +61,20 @@ class Test_Board(unittest.TestCase):
     
     def test_isKingAlive(self):
         board = Board()
+        #kings alive at start
         self.assertTrue(board.isKingAlive('w'))
         self.assertTrue(board.isKingAlive('b'))
         
-        board.grid[7][4] = None 
-        self.assertTrue(board.grid[7][4] == None )   
-        self.assertFalse(board.isKingAlive('w'))   
+        board.grid[7][4] = None  #Remove king 
+        self.assertTrue(board.grid[7][4] == None )  #ensure the king no longer exists
+        self.assertFalse(board.isKingAlive('w'))    #king alive should now fail
         
+        #Do the same for black
         board.grid[0][4] = None 
         self.assertTrue(board.grid[0][4] == None )   
         self.assertFalse(board.isKingAlive('b'))   
         
-        
+    #Checks the different valid moves of pieces
     def test_checkValidMove(self):
         board = Board()
         
@@ -102,7 +108,7 @@ class Test_Board(unittest.TestCase):
         self.assertFalse(board.checkValidMove((0,0), (1,1))) #a8 to b7
         
         #self.assertTrue(board.checkValidMove((0,3), (0,4))) #d8 to e8 (To be used for presentation purposes)
-        #self.assertFalse(board.checkValidMove((0,3), (0,4))) #d8 to e8 (To be used for presentation purposes)
+        self.assertFalse(board.checkValidMove((0,3), (0,4))) #d8 to e8 (To be used for presentation purposes)
     
 if __name__ == '__main__':
     unittest.main()
