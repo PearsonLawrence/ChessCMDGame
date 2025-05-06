@@ -155,9 +155,9 @@ class Board:
 
                 if piece:
                     if piece.color == 'b':
-                        pieceColor = Fore.LIGHTWHITE_EX
-                    else: 
                         pieceColor = Fore.BLACK
+                    else: 
+                        pieceColor = Fore.LIGHTWHITE_EX
                     boardBlock = f"{boardColor}{pieceColor} {piece.pieceCharacter()} {Style.RESET_ALL}"
                 else:
                     boardBlock = f"{boardColor}   {Style.RESET_ALL}"  
