@@ -1,6 +1,9 @@
 
 
 from piece import Piece
+from colorama import init, Fore, Back, Style
+
+init(autoreset=True)
 
 class Board:
     def __init__(self):
@@ -136,8 +139,6 @@ class Board:
                 print("Invalid Pawn Move")
                 return False
         
-            
-        
         return True
 
     def render(self):
@@ -148,18 +149,18 @@ class Board:
                 piece = self.grid[row][col]
 
                 if (row + col) % 2 == 0:
-                    boardColor = '\033[48;5;230m'  
+                    boardColor = Back.LIGHTBLUE_EX
                 else:
-                    boardColor = '\033[48;5;180m'  
+                    boardColor = Back.BLUE
 
                 if piece:
                     if piece.color == 'b':
-                        pieceColor = '\033[30m' 
+                        pieceColor = Fore.LIGHTWHITE_EX
                     else: 
-                        pieceColor = '\033[97m'
-                    boardBlock = f"{boardColor}{pieceColor} {piece.pieceCharacter()} \033[0m"
+                        pieceColor = Fore.BLACK
+                    boardBlock = f"{boardColor}{pieceColor} {piece.pieceCharacter()} {Style.RESET_ALL}"
                 else:
-                    boardBlock = f"{boardColor}   \033[0m"  
+                    boardBlock = f"{boardColor}   {Style.RESET_ALL}"  
 
                 rowstr += boardBlock
             print(rowstr + f" {8 - row}")
