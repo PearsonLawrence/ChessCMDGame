@@ -6,8 +6,11 @@ class Piece:
     
     def pieceCharacter(self):
         character = {
-            'w': {'P': '♙', 'R': '♖', 'N': '♘', 'B': '♗', 'Q': '♕', 'K': '♔'}, #White pieces
-            'b': {'P': '♟', 'R': '♜', 'N': '♞', 'B': '♝', 'Q': '♛', 'K': '♚'} #black pieces
+            #only usable on linux
+            #'w': {'P': '♙', 'R': '♖', 'N': '♘', 'B': '♗', 'Q': '♕', 'K': '♔'}, #White pieces
+            #'b': {'P': '♟', 'R': '♜', 'N': '♞', 'B': '♝', 'Q': '♛', 'K': '♚'} #black pieces
+            'w': {'P': 'P', 'R': 'R', 'N': 'N', 'B': 'B', 'Q': 'Q', 'K': 'K'}, #White pieces
+            'b': {'P': 'P', 'R': 'R', 'N': 'N', 'B': 'B', 'Q': 'Q', 'K': 'K'} #black pieces
         }
         return character[self.color][self.name]
     

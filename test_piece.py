@@ -7,6 +7,35 @@ class Test_Piece(unittest.TestCase):
         return super().setUp()
         
     def test_pieceCharacter(self):
+      
+        piece = Piece('P', 'b')
+        self.assertEqual(piece.pieceCharacter(),'P') 
+        piece = Piece('R', 'b')
+        self.assertEqual(piece.pieceCharacter(),'R') 
+        piece = Piece('N', 'b')
+        self.assertEqual(piece.pieceCharacter(),'N') 
+        piece = Piece('B', 'b')
+        self.assertEqual(piece.pieceCharacter(),'B') 
+        piece = Piece('Q', 'b')
+        self.assertEqual(piece.pieceCharacter(),'Q') 
+        piece = Piece('K', 'b')
+        self.assertEqual(piece.pieceCharacter(),'K') 
+        
+        
+        piece = Piece('P', 'w')
+        self.assertEqual(piece.pieceCharacter(),'P') 
+        piece = Piece('R', 'w')
+        self.assertEqual(piece.pieceCharacter(),'R') 
+        piece = Piece('N', 'w')
+        self.assertEqual(piece.pieceCharacter(),'N') 
+        piece = Piece('B', 'w')
+        self.assertEqual(piece.pieceCharacter(),'B') 
+        piece = Piece('Q', 'w')
+        self.assertEqual(piece.pieceCharacter(),'Q') 
+        piece = Piece('K', 'w')
+        self.assertEqual(piece.pieceCharacter(),'K') 
+        
+        '''This would only be allowed on linux due to special symbol
         piece = Piece('P', 'b')
         self.assertEqual(piece.pieceCharacter(),'♟') 
         piece = Piece('R', 'b')
@@ -33,7 +62,7 @@ class Test_Piece(unittest.TestCase):
         self.assertEqual(piece.pieceCharacter(),'♕') 
         piece = Piece('K', 'w')
         self.assertEqual(piece.pieceCharacter(),'♔') 
-    
+    '''
     
     def test_checkLegalMove(self):
         piece = Piece('P', 'w')
